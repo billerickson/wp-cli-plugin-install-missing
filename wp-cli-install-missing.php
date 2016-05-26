@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: wp cli install missing
+ * Plugin Name: WP CLI Install Missing
  * Plugin URI:  https://github.com/billerickson/wp-cli-install-missing
  * Description: Using wp cli, install any plugins that are "active" but missing.
  * Version:     0.1.0
