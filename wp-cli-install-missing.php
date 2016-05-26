@@ -34,11 +34,7 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 		$plugin = strstr( $plugin, '/', true );
 		
 	// Missing Plugins
-	$missing = array();
-	foreach( $installed as $plugin )
-		if( ! in_array( $plugin, $active ) )
-			$missing[] = $plugin;
-
+	$missing = array_diff( $installed, $active );
 
 	// No Missing Plugins			
 	if( empty( $missing ) ) {
