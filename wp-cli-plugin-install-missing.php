@@ -25,6 +25,9 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 
 	// Active Plugins
 	$response = WP_CLI::launch_self( 'plugin list', array(), array( 'format' => 'json', 'status' => 'active' ), false, true );
+	if( !empty( $response->stderr ) ) {
+		WP_CLI::error( str_replace( 'Error: ', '', $response->stderr ) );
+	}
 	$active = json_decode( $response->stdout );
 	$active = wp_list_pluck( $active, 'name' );
 
@@ -59,7 +62,11 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	WP_CLI::log( 'Installing plugins...' );
 	foreach( $missing as $plugin ) {
 		$response = WP_CLI::launch_self( 'plugin install', array( $plugin ), array(), false, true );
-		WP_CLI::log( $response->stdout );
+		if( !empty( $response->stderr ) ) {
+			WP_CLI::error( str_replace( 'Error: ', '', $response->stderr ) );
+		} else {
+			WP_CLI::log( $response->stdout );
+		}
 	}
 	WP_CLI::success( 'Installed missing plugins.' );
 }
