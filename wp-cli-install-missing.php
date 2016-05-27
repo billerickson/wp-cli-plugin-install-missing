@@ -30,8 +30,9 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	
 	// Installed Plugins
 	$installed = get_option( 'active_plugins' );
-	foreach( $installed as &$plugin )
+	foreach( $installed as &$plugin ) {
 		$plugin = strstr( $plugin, '/', true );
+	}
 		
 	// Missing Plugins
 	$missing = array_diff( $installed, $active );
@@ -46,13 +47,15 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	
 	// Display list of Missing Plugins	
 	WP_CLI::log( 'The following plugins are missing:' );
-	foreach( $missing as $plugin )
+	foreach( $missing as $plugin ) {
 		WP_CLI::log( $plugin );
+	}
 	
 	// Quit here for dry run
 	$dry_run = isset( $assoc_args['dry-run'] ) && (bool) $assoc_args['dry-run'] ? true : false;
-	if( $dry_run )
+	if( $dry_run ) {
 		exit;
+	}
 		
 	// Install plugins
 	WP_CLI::log( 'Installing plugins...' );
