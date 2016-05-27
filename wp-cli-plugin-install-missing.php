@@ -40,7 +40,7 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	// No Missing Plugins			
 	if( empty( $missing ) ) {
 
-		WP_CLI::log( 'No missing plugins' );
+		WP_CLI::success( 'No missing plugins' );
 		return;
 		
 	}
@@ -63,5 +63,6 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 		$response = WP_CLI::launch_self( 'plugin install', array( $plugin ), array(), false, true );
 		WP_CLI::log( $response->stdout );
 	}
+	WP_CLI::success( 'Installed missing plugins.' );
 }
 WP_CLI::add_command( 'plugin install-missing', 'be_wpcli_install_missing' );
