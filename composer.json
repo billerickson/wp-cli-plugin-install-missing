@@ -1,0 +1,12 @@
+{
+	"name": "billerickson/wp-cli-plugin-install-missing",
+	"description": "Install any plugins that are active but missing.",
+	"homepage": "https://github.com/billerickson/wp-cli-plugin-install-missing",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.4"
+	},
+	"autoload": {
+		"files": [ "command.php" ]
+	}
+}
