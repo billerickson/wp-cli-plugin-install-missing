@@ -41,7 +41,7 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	if( empty( $missing ) ) {
 
 		WP_CLI::log( 'No missing plugins' );
-		exit;
+		return;
 		
 	}
 	
@@ -54,7 +54,7 @@ function be_wpcli_install_missing( $args, $assoc_args ) {
 	// Quit here for dry run
 	$dry_run = isset( $assoc_args['dry-run'] ) && (bool) $assoc_args['dry-run'] ? true : false;
 	if( $dry_run ) {
-		exit;
+		return;
 	}
 		
 	// Install plugins
