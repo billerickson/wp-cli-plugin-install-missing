@@ -18,7 +18,7 @@ if ( ! ( defined('WP_CLI') && WP_CLI ) )
  *
  * ## OPTIONS
  *
- *[--dry-run]
+ * [--dry-run]
  * : Run the search and show report, but don't install missing plugins
  */
 function be_wpcli_install_missing( $args, $assoc_args ) {
