@@ -7,6 +7,6 @@
 		"php": ">=5.4"
 	},
 	"autoload": {
-		"files": [ "command.php" ]
+		"files": [ "wp-cli-plugin-install-missing.php" ]
 	}
 }
