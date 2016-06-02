@@ -1,4 +1,4 @@
-# wp-cli-install-missing
+# wp cli plugin install-missing
 Install any plugins that are "active" but not installed. 
 
 I use it when pulling an updated database to my local installation. If any plugins were installed since I last worked on the site, this will add them to my local install as well.
